@@ -8,12 +8,13 @@ const Comment = ({ comments }) => {
   if(comments.replies) {
    return  ( <div>
       <ul>
-        <div>
+        <div style= {{display: 'flex', gap :"5px"}}>
           <li>{comments.author}</li>
+          <li>{comments.points + " points"}</li>
           <li>{comments.timestamp}</li>
         </div>
-        <li>{comments.body}</li>
-        <button onClick={() => setExtend(!extend)}>Show Replies</button>
+        <li style = {{fontWeight:"bold"}}>{comments.body}</li>
+        <button onClick={() => setExtend(!extend)} style = {{border : "none", background :"white", color : "grey" , cursor : "pointer"}}>{!extend ? "Comments" : "Collaps" }</button>
         {extend ? (
             <>
               {comments.replies.map((el) => {
@@ -28,11 +29,12 @@ const Comment = ({ comments }) => {
   return (
     <div>
       <ul >
-        <div>
+        <div style= {{display: 'flex', gap :"5px"}}>
           <li>{comments.author}</li>
+          <li>{comments.points + " points"}</li>
           <li>{comments.timestamp}</li>
         </div>
-        <li>{comments.body}</li>
+        <li style = {{fontWeight:"bold"}}>{comments.body}</li>
       </ul>
     </div>
   );
